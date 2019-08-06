@@ -69,33 +69,34 @@ h1{
     position: absolute;
 }
 
-table{ 
-    margin: 0 auto;
-    font-size: 10pt;
-    text-align: left;
-}
-
-td{
-    padding:5px 45px 0 15px; /*add spacing between the columns*/
-}
-
 #level{
     text-align: right;
     border: solid white;
     margin-top: -150px;
-    margin-left: 40%; 
+    margin-left: 48%; 
     text-align: center;
     vertical-align: center;
     font-family: 'Indie Flower', cursive; /*Font linked from Google Fonts*/
     color: white;
-    font-size: 14pt;
+    font-size: 18pt;
     letter-spacing: 3pt; /*Space letters in title*/
     background-color:rgb(22, 54, 141); 
-    width: 300px;
+    width: 200px;
     height: 100px;
     border-radius: 20px; /*round edges of div*/
     padding-top: 8px; /*bring the text down closer to the middle*/
 }
+
+ul{
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin-top: -5px;
+    line-height: 18pt;
+    font-size: 14pt;
+    list-style-type: none;
+}
+
+
 #highScore{
     font-family: 'Orbitron', sans-serif;
     text-align: right;
@@ -113,4 +114,14 @@ td{
     height: 100px;
     border-radius: 20px; /*round edges of div*/
     padding-top: 8px; /*bring the text down closer to the middle*/
+}
+
+table{ 
+    margin: 0 auto;
+    font-size: 10pt;
+    text-align: left;
+}
+
+td{
+    padding:5px 45px 0 15px; /*add spacing between the columns*/
 }
