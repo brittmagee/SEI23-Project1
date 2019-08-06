@@ -46,6 +46,17 @@ h1{
     position: relative;
     right: 35%;
     margin-top: -180px;
+    animation: rotateSun 200s infinite;
+}
+
+@keyframes rotateSun{
+    0% {
+
+    }
+    100%{
+        transform: rotate(360deg);
+        /* rotate the object based on deg*/
+    }
 }
 
 .planets{
