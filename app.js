@@ -70,7 +70,6 @@ let easy = ["earth","venus","mars","mercury","earth","mercury","mars","venus","m
 
 //Easy Level: loop through array and activate features 
 document.getElementById("easy").addEventListener("click", function(){
-    console.log("works!")
     for(let i = 0; i < easy.length; i++){
         console.log(easy[i]);
         if(easy[i]=== "mercury"){
@@ -90,7 +89,6 @@ let medium = ["mars","venus","mars","mercury","mercury","earth","venus",'Mars',"
 
 //Medium Level: loop through array and activate features 
 document.getElementById("medium").addEventListener("click", function(){
-    console.log("yeah!")
     for(let i = 0; i < medium.length; i++){
         console.log(medium[i]);
         if(medium[i]=== "mercury"){
@@ -110,7 +108,6 @@ let hard = ["venus","mercury","venus","mars","earth","mars","mercury","earth","v
 
 //Hard Level: loop through array and activate features 
 document.getElementById("hard").addEventListener("click", function(){
-    console.log("woohoo!")
     for(let i = 0; i < hard.length; i++){
         console.log(medium[i]);
         if(hard[i]=== "mercury"){
@@ -126,11 +123,40 @@ document.getElementById("hard").addEventListener("click", function(){
 });
 
 //function for easy level (10)
+let planets = ["mercury","venus","earth","mars"];
+let easyLevel = [];
+let mediumLevel = [];
+let hardLevel = [];
+let userMoves = [];
+let moves = 0; 
 
-let planets = ["mercury","venus","earth","mars"]
-let easyLevel = []
 
-// {
+//function for easy level (10)
+function easyLevelArray() {
+    for (let i = 0; i < 10; i++){
+        easyLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
+    }
+}
+easyLevelArray();
+console.log(easyLevel)
+
+//function for medium level (15)
+function mediumLevelArray(){
+    for (let i = 0; i < 15; i++){
+        mediumLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
+    }
+}
+mediumLevelArray();
+console.log(mediumLevel)
+
+//function for hard level (20)
+function hardLevelArray(){
+    for (let i = 0; i < 20; i++){
+        hardLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
+    }
+}
+hardLevelArray();
+console.log(hardLevel)
 //     nextPlanet = Math.floor(Math.random()*5)
 //     console.log(easy[i]);
 //     document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
@@ -138,20 +164,3 @@ let easyLevel = []
 //     meGlow.onclick = setInterval(removeGlow, 300);
 //     easyLevel.push(nextPlanet)
 // }
-
-
-// function easyLevel (){
-//     for(let i = 0; i < easy.length; i++){
-//         console.log(easy[i]);
-//         document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
-//         let meGlow = document.getElementById("mercury");
-//         meGlow.onclick = setInterval(removeGlow, 300);
-//     }
-//     console.log("works")
-// }
-
-// //function for medium level(15)
-
-
-
-// //function for hard level(20)
