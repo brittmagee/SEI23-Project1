@@ -1,4 +1,4 @@
-//play planet audio
+//play planet audio and inact planet "glow" styling when user clicks the planet
 let mercuryBeep = new Audio ("audio/mercury.mp3")
 let venusBeep = new Audio ("audio/venus.mp3")
 let earthBeep = new Audio ("audio/earth.mp3")
@@ -35,3 +35,15 @@ function removeGlow(){
     document.getElementById("earth").style.boxShadow = null;
     document.getElementById("mars").style.boxShadow = null;
 }
+
+
+//function for easy level (10)
+let easy = ["earth","venus","mars","mercury","mercury","earth","mercury","mars","venus","venus"];
+
+
+//function for medium level(15)
+let medium = ["mars","venus","mars","mercury","mercury","earth","venus",'Mars',"earth","mars","mercury","mercury","earth","venus","mars"];
+
+
+//function for hard level(20)
+let hard = ["venus","mercury","venus","mars","earth","mars","mercury","earth","venus","venus","mercury","mars","earth","mercury","mars","venus","venus","mercury","earth","mars"];
