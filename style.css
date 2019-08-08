@@ -155,8 +155,3 @@ td{
     margin-left: 25px;
     border-radius: 50%;
 }
-
-.glow{
-    box-shadow: 0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset ;
-    
-}

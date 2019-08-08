@@ -6,14 +6,16 @@ let marsBeep = new Audio ("audio/mars.mp3")
 function planetBeep(i){
     if(i == "me"){
         mercuryBeep.play();
-        document.getElementById("mercury").style.border = "1px solid #4195fc";
+        document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     }else if(i == "v"){
         venusBeep.play();
-        document.getElementById("venus").style.border = "1px solid #4195fc";
+        document.getElementById("venus").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     }else if(i == "e"){
         earthBeep.play();
+        document.getElementById("earth").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     }else if(i == "ma"){
         marsBeep.play();
+        document.getElementById("mars").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     }
 }
 
