@@ -36,14 +36,16 @@ function removeGlow(){
     document.getElementById("mars").style.boxShadow = null;
 }
 
+//select levels
+document.getElementById("easy").addEventListener("click", function(){
+    console.log("works!")
+});
 
-//function for easy level (10)
-let easy = ["earth","venus","mars","mercury","mercury","earth","mercury","mars","venus","venus"];
+document.getElementById("medium").addEventListener("click", function(){
+    console.log("yeah!")
+});
 
+document.getElementById("hard").addEventListener("click", function(){
+    console.log("woohoo!")
+});
 
-//function for medium level(15)
-let medium = ["mars","venus","mars","mercury","mercury","earth","venus",'Mars',"earth","mars","mercury","mercury","earth","venus","mars"];
-
-
-//function for hard level(20)
-let hard = ["venus","mercury","venus","mars","earth","mars","mercury","earth","venus","venus","mercury","mars","earth","mercury","mars","venus","venus","mercury","earth","mars"];
