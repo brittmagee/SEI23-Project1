@@ -66,7 +66,6 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
 }
 
 #level{
@@ -126,4 +125,20 @@ table{
 
 td{
     padding:5px 45px 0 15px; /*add spacing between the columns*/
+}
+
+#mercury{
+    cursor: pointer;
+}
+
+#venus{
+    cursor: pointer;
+}
+
+#earth{
+    cursor: pointer;
+}
+
+#mars{
+    cursor: pointer;
 }
