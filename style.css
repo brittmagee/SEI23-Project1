@@ -127,18 +127,33 @@ td{
     padding:5px 45px 0 15px; /*add spacing between the columns*/
 }
 
+/*styling the planets*/
+
 #mercury{
     cursor: pointer;
+    position: relative;
+    border:none;
+    outline: none;
 }
 
 #venus{
     cursor: pointer;
+    position: relative;
+    margin-left: 25px;
 }
 
 #earth{
     cursor: pointer;
+    position: relative;
+    margin-left: 25px;
 }
 
 #mars{
     cursor: pointer;
+    position: relative;
+    margin-left: 25px;
+}
+
+.glow{
+    box-shadow: 0px 0px 30px 2px rgb(105, 255, 85);
 }
