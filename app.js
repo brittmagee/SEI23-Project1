@@ -9,22 +9,22 @@ function planetBeep(i){
         mercuryBeep.play();
         document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let meGlow = document.getElementById("mercury");
-        meGlow.onclick = setTimeout(removeGlow, 300);
+        meGlow.onclick = setTimeout(removeGlow, 400);
     }else if(i == "v"){
         venusBeep.play();
         document.getElementById("venus").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let vGlow = document.getElementById("venus");
-        vGlow.onclick = setTimeout(removeGlow, 300);
+        vGlow.onclick = setTimeout(removeGlow, 500);
     }else if(i == "e"){
         earthBeep.play();
         document.getElementById("earth").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let eGlow = document.getElementById("earth");
-        eGlow.onclick = setTimeout(removeGlow, 300);
+        eGlow.onclick = setTimeout(removeGlow, 500);
     }else if(i == "ma"){
         marsBeep.play();
         document.getElementById("mars").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let maGlow = document.getElementById("mars");
-        maGlow.onclick = setTimeout(removeGlow, 300);
+        maGlow.onclick = setTimeout(removeGlow, 600);
     }
 }
 
@@ -36,13 +36,11 @@ function removeGlow(){
     document.getElementById("mars").style.boxShadow = null;
 }
 
-let easy = ["earth","venus","mars","mercury","mercury","earth","mercury","mars","venus","venus"];
-
 function mercurySequence (){
-    document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     mercuryBeep.play();
+    document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     let meGlow = document.getElementById("mercury");
-    meGlow = setTimeout(removeGlow, 300);
+    meGlow = setTimeout(removeGlow, 400);
 }
 
 
@@ -50,34 +48,40 @@ function venusSequence (){
     venusBeep.play();
     document.getElementById("venus").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     let vGlow = document.getElementById("venus");
-    vGlow = setTimeout(removeGlow, 300);
+    vGlow = setTimeout(removeGlow, 500);
 }
 
+function earthSequence(){
+    earthBeep.play();
+    document.getElementById("earth").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
+    let eGlow = document.getElementById("earth");
+    eGlow = setTimeout(removeGlow, 600);
+}
 
-// earthBeep.play();
-// document.getElementById("earth").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
-// let eGlow = document.getElementById("earth");
-// eGlow.onclick = setInterval(removeGlow, 300);
+function marsSequence(){
+    marsBeep.play();
+    document.getElementById("mars").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
+    let maGlow = document.getElementById("mars");
+    maGlow = setTimeout(removeGlow, 500);
+}
 
-// marsBeep.play();
-// document.getElementById("mars").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
-// let maGlow = document.getElementById("mars");
-// maGlow.onclick = setInterval(removeGlow, 300);
-
-
+let easy = ["earth","venus","mars","mercury","earth","mercury","mars","venus","mercury","venus"];
 
 //select levels
 document.getElementById("easy").addEventListener("click", function(){
     console.log("works!")
     for(let i = 0; i < easy.length; i++){
         console.log(easy[i]);
-        if(easy[i]== "mercury"){
-            setTimeout(mercurySequence, 300*i);
-        } else if (easy[i]== "venus"){
-            setTimeout(venusSequence, 300*i); 
+        if(easy[i]=== "mercury"){
+            setTimeout(mercurySequence, 1000 * i);
+        }else if (easy[i]=== "venus"){
+            setTimeout(venusSequence, 1000 * i); 
+        }else if (easy[i] === "earth"){
+            setTimeout(earthSequence, 1000 * i); 
+        }else if(easy[i] === "mars"){
+            setTimeout(marsSequence, 1000 * i); 
         }
     }
-
 });
 
 document.getElementById("medium").addEventListener("click", function(){
