@@ -1,3 +1,6 @@
+Note to user: 
+Please be sure to turn on your audio 
+
 Source links:
 
 Audio beeps: https://www.audioblocks.com/ 
