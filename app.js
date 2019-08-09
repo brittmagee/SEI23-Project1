@@ -6,6 +6,7 @@ let marsBeep = new Audio ("audio/mars.mp3")
 let lose = new Audio ("audio/lose.mp3")
 let win = new Audio ("audio/win.mp3")
 
+//what occurs when planet is clicked 
 function planetBeep(i){
     if(i == "me"){
         mercuryBeep.play();
@@ -71,12 +72,34 @@ function marsSequence(){
     userMoves.push("mars")//push into the empty userMoves array 
 }
 
+
+//function for easy level (Using Math.floor and Math.random to generate 10 random planet sequence)
+function easyLevelArray() {
+    for (let i = 0; i < 10; i++){
+        easyLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
+    }
+}
+
+//function for medium level (Using Math.floor and Math.random to generate 15 random planet sequence)
+function mediumLevelArray(){
+    for (let i = 0; i < 15; i++){
+        mediumLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
+    }
+}
+
+//function for hard level (Using Math.floor and Math.random to generate 20 random planet sequence)
+function hardLevelArray(){
+    for (let i = 0; i < 20; i++){
+        hardLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
+    }
+}
+
 //Sample easy array sequence(10)
 //let easy = ["earth","venus","mars","mercury","earth","mercury","mars","venus","mercury","venus"];
 
 //Easy Level: loop through array and activate features 
 document.getElementById("easy").addEventListener("click", function(){
-    easyLevelArray();
+    easyLevelArray(); //this function is below
     for(let i = 0; i < easyLevel.length; i++){
         console.log(easyLevel[i]);
         if(easyLevel[i]=== "mercury"){
@@ -96,7 +119,7 @@ document.getElementById("easy").addEventListener("click", function(){
 
 //Medium Level: loop through array and activate features 
 document.getElementById("medium").addEventListener("click", function(){
-    mediumLevelArray();
+    mediumLevelArray(); //this function is below
     for(let i = 0; i < mediumLevel.length; i++){
         console.log(mediumLevel[i]);
         if(mediumLevel[i]=== "mercury"){
@@ -116,7 +139,7 @@ document.getElementById("medium").addEventListener("click", function(){
 
 //Hard Level: loop through array and activate features 
 document.getElementById("hard").addEventListener("click", function(){
-    hardLevelArray();
+    hardLevelArray(); //this function is below
     for(let i = 0; i < hardLevel.length; i++){
         console.log(medium[i]);
         if(hardLevel[i]=== "mercury"){
@@ -142,30 +165,8 @@ let simonTurnIndex = 0;
 let userTurnIndex = 0;
 let moves = 0; 
 
-
-//function for easy level (random 10 planets)
-function easyLevelArray() {
-    for (let i = 0; i < 10; i++){
-        easyLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
-    }
-}
-
-//function for medium level (random 15 planets)
-function mediumLevelArray(){
-    for (let i = 0; i < 15; i++){
-        mediumLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
-    }
-}
-
-//function for hard level (random 20 planets)
-function hardLevelArray(){
-    for (let i = 0; i < 20; i++){
-        hardLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
-    }
-}
-
-
-function easyGameStart (){
+//function for easy game
+function easyGameStart(){
     if(simonTurn){
         for(let i=0; i<easyLevelArray.length; i++){
             if(easyLevelArray[i] == "mercury"){
@@ -175,6 +176,44 @@ function easyGameStart (){
             }else if (easyLevelArray[i] == "earth"){
                 earthSequence();
             }else if (easyLevelArray[i] == "mars"){
+                marsSequence();
+            }
+        }
+        simonTurnIndex +1;
+        simonTurn = false;
+    }
+}
+
+//function for medium game
+function mediumGameStart(){
+    if(simonTurn){
+        for(let i=0; i<mediumLevelArray.length; i++){
+            if(mediumLevelArray[i] == "mercury"){
+                mercurySequence();
+            }else if (mediumLevelArray[i] == "venus"){
+                venusSequence();
+            }else if (mediumLevelArray[i] == "earth"){
+                earthSequence();
+            }else if (mediumLevelArray[i] == "mars"){
+                marsSequence();
+            }
+        }
+        simonTurnIndex +1;
+        simonTurn = false;
+    }
+}
+
+//function for hard game
+function hardGameStart(){
+    if(simonTurn){
+        for(let i=0; i<hardLevelArray.length; i++){
+            if(hardLevelArray[i] == "mercury"){
+                mercurySequence();
+            }else if (hardLevelArray[i] == "venus"){
+                venusSequence();
+            }else if (hardLevelArray[i] == "earth"){
+                earthSequence();
+            }else if (hardLevelArray[i] == "mars"){
                 marsSequence();
             }
         }
