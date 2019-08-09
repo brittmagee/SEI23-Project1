@@ -1,5 +1,5 @@
 Note to user: 
-Welcome to Solar Sequence! For teh best user experience, please be sure to turn on your audio. 
+Welcome to Solar Sequence! For the best user experience, please be sure to turn on your audio. 
 
 
 Required links: 
@@ -14,4 +14,3 @@ Wireframe:
 
 Other: 
 Source link for audio planet beeps: https://www.audioblocks.com/ 
-Tutorial on how to get audio to play: https://stackoverflow.com/questions/34696208/play-a-sound-on-image-click-in-html
