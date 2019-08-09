@@ -261,18 +261,22 @@ function mediumSimon(){
 //function for hard game
 function hardSimon(){
     if(simonTurn){
-        for(let i=0; i<hardLevelArray.length; i++){
-            if(hardLevelArray[i] == "mercury"){
-                mercurySequence();
-            }else if (hardLevelArray[i] == "venus"){
-                venusSequence();
-            }else if (hardLevelArray[i] == "earth"){
-                earthSequence();
-            }else if (hardLevelArray[i] == "mars"){
-                marsSequence();
-            }
+        hardLevelArray(); 
+        for(let i=0; i<hardLevel.length; i++){
+                if(hardLevel[i] == "mercury"){
+                    setTimeout(mercurySequence, 1000 * i);
+                }else if (hardLevel[i] == "venus"){
+                    setTimeout(venusSequence, 1000 * i); 
+                }else if (hardLevel[i] == "earth"){
+                    setTimeout(earthSequence, 1000 * i); 
+                }else if (hardLevel[i] == "mars"){
+                    setTimeout(marsSequence, 1000 * i); 
+                }
+            // console.log(hardLevel)
         }
-        simonTurnIndex +1;
+        simonTurnIndex += 1;
         simonTurn = false;
+        userTurn = true;
+        counter = 0; //resets the array to to go back to the first index and not go further in the index sequnece 
     }
 }
