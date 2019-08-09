@@ -6,6 +6,7 @@ let marsBeep = new Audio ("audio/mars.mp3")
 let lose = new Audio ("audio/lose.mp3")
 let win = new Audio ("audio/win.mp3")
 
+
 //what occurs when planet is clicked 
 function planetBeep(i){
     if(i == "me"){
@@ -13,25 +14,25 @@ function planetBeep(i){
         document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let meGlow = document.getElementById("mercury");
         meGlow.onclick = setTimeout(removeGlow, 400);
-        userMoves.push("mercury")//push into the empty userMoves array 
+        userPlayEasy("mercury");
     }else if(i == "v"){
         venusBeep.play();
         document.getElementById("venus").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let vGlow = document.getElementById("venus");
         vGlow.onclick = setTimeout(removeGlow, 500);
-        userMoves.push("venus")//push into the empty userMoves array 
+        userPlayEasy("venus");
     }else if(i == "e"){
         earthBeep.play();
         document.getElementById("earth").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let eGlow = document.getElementById("earth");
         eGlow.onclick = setTimeout(removeGlow, 500);
-        userMoves.push("earth")//push into the empty userMoves array 
+        userPlayEasy("earth");
     }else if(i == "ma"){
         marsBeep.play();
         document.getElementById("mars").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let maGlow = document.getElementById("mars");
         maGlow.onclick = setTimeout(removeGlow, 600);
-        userMoves.push("mars")//push into the empty userMoves array 
+        userPlayEasy("mars");
     }
 }
 
@@ -49,6 +50,10 @@ function mercurySequence (){
     document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     let meGlow = document.getElementById("mercury");
     meGlow = setTimeout(removeGlow, 400);
+    userMoves.push("mercury")//push into the empty userMoves array 
+    moves += 1;
+    document.getElementById("currentScore").innerHTML = moves;
+    // userPlayEasy("mercury");
 }
 //what happens venus called
 function venusSequence (){
@@ -56,6 +61,10 @@ function venusSequence (){
     document.getElementById("venus").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     let vGlow = document.getElementById("venus");
     vGlow = setTimeout(removeGlow, 500);
+    userMoves.push("venus")//push into the empty userMoves array 
+    moves += 1;
+    document.getElementById("currentScore").innerHTML = moves;
+    // userPlayEasy("venus");
 }
 //what happens earth called
 function earthSequence(){
@@ -63,6 +72,10 @@ function earthSequence(){
     document.getElementById("earth").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     let eGlow = document.getElementById("earth");
     eGlow = setTimeout(removeGlow, 600);
+    userMoves.push("earth")//push into the empty userMoves array 
+    moves += 1;
+    document.getElementById("currentScore").innerHTML = moves;
+    // userPlayEasy("earth");
 }
 //what happens mars called
 function marsSequence(){
@@ -70,14 +83,16 @@ function marsSequence(){
     document.getElementById("mars").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     let maGlow = document.getElementById("mars");
     maGlow = setTimeout(removeGlow, 500);
+    userMoves.push("mars")//push into the empty userMoves array 
+    moves += 1;
+    document.getElementById("currentScore").innerHTML = moves;
+    // userPlayEasy("mars");
 }
 
 
 //function for easy level (Using Math.floor and Math.random to generate 10 random planet sequence)
 function easyLevelArray() {
-    for (let i = 0; i < 10; i++){
         easyLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
-    }
 }
 
 //function for medium level (Using Math.floor and Math.random to generate 15 random planet sequence)
@@ -99,8 +114,8 @@ function hardLevelArray(){
 
 //Easy Level: loop through array and activate features 
 document.getElementById("easy").addEventListener("click", function(){
-    easyLevelArray(); //this function is below
-    userPlayEasy();
+    //easyLevelArray(); 
+    easySimon();
     for(let i = 0; i < easyLevel.length; i++){
         console.log(easyLevel[i]);
         if(easyLevel[i]=== "mercury"){
@@ -120,7 +135,7 @@ document.getElementById("easy").addEventListener("click", function(){
 
 //Medium Level: loop through array and activate features 
 document.getElementById("medium").addEventListener("click", function(){
-    mediumLevelArray(); //this function is below
+    mediumLevelArray(); 
     for(let i = 0; i < mediumLevel.length; i++){
         console.log(mediumLevel[i]);
         if(mediumLevel[i]=== "mercury"){
@@ -140,7 +155,7 @@ document.getElementById("medium").addEventListener("click", function(){
 
 //Hard Level: loop through array and activate features 
 document.getElementById("hard").addEventListener("click", function(){
-    hardLevelArray(); //this function is below
+    hardLevelArray(); 
     for(let i = 0; i < hardLevel.length; i++){
         console.log(medium[i]);
         if(hardLevel[i]=== "mercury"){
@@ -160,40 +175,51 @@ let easyLevel = [];
 let mediumLevel = [];
 let hardLevel = [];
 let userMoves = [];
-//let simonTurn = true; //simon's turn when game loads
-//let userTurn = false;
+let simonTurn = true; //simon's turn when game loads
+let userTurn = false;
 let simonTurnIndex = 0;
 let userTurnIndex = 0;
 let moves = 0; 
+let scoreBoard = document.getElementById("currentScore").innerText
+let counter = 0;
 
 //function for easy game
 function easySimon(){
-    // if(simonTurn){
-        for(let i=0; i<easyLevelArray.length; i++){
-            if(easyLevelArray[i] == "mercury"){
-                mercurySequence();
-            }else if (easyLevelArray[i] == "venus"){
-                venusSequence();
-            }else if (easyLevelArray[i] == "earth"){
-                earthSequence();
-            }else if (easyLevelArray[i] == "mars"){
-                marsSequence();
-            }
+    if(simonTurn){
+        easyLevelArray(); 
+        for(let i=0; i<easyLevel.length; i++){
+                if(easyLevel[i] == "mercury"){
+                    setTimeout(mercurySequence, 1000 * i);
+                }else if (easyLevel[i] == "venus"){
+                    setTimeout(venusSequence, 1000 * i); 
+                }else if (easyLevel[i] == "earth"){
+                    setTimeout(earthSequence, 1000 * i); 
+                }else if (easyLevel[i] == "mars"){
+                    setTimeout(marsSequence, 1000 * i); 
+                }
+            // console.log(easyLevel)
         }
-        simonTurnIndex +1;
-        //simonTurn = false;
-    // }
+        simonTurnIndex += 1;
+        simonTurn = false;
+        userTurn = true;
+        counter = 0;
+    }
 }
 
-function userPlayEasy(){
-    for (let i = 0; i< easyLevel.length ; i++){
-        if(easyLevel[i] == userMoves[i]){
-            easySimon();
+function userPlayEasy(planet){
+    if(userTurn){
+        if(easyLevel[counter] == planet){
+            counter += 1;
             console.log("right!")
         }else {
             lose.play();
             document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
             console.log("wrong!")
+            }
+        if(counter >= easyLevel.length){
+            userTurn = false;
+            simonTurn = true;
+            setTimeout(easySimon, 2000);
         }
     }
 }
@@ -235,10 +261,3 @@ function hardGameStart(){
         simonTurn = false;
     }
 }
-
-//     nextPlanet = Math.floor(Math.random()*5)
-//     console.log(easy[i]);
-//     document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
-//     let meGlow = document.getElementById("mercury");
-//     meGlow.onclick = setInterval(removeGlow, 300);
-//     easyLevel.push(nextPlanet)
