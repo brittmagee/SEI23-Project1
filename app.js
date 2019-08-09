@@ -13,21 +13,25 @@ function planetBeep(i){
         document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let meGlow = document.getElementById("mercury");
         meGlow.onclick = setTimeout(removeGlow, 400);
+        userMoves.push("mercury")//push into the empty userMoves array 
     }else if(i == "v"){
         venusBeep.play();
         document.getElementById("venus").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let vGlow = document.getElementById("venus");
         vGlow.onclick = setTimeout(removeGlow, 500);
+        userMoves.push("venus")//push into the empty userMoves array 
     }else if(i == "e"){
         earthBeep.play();
         document.getElementById("earth").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let eGlow = document.getElementById("earth");
         eGlow.onclick = setTimeout(removeGlow, 500);
+        userMoves.push("earth")//push into the empty userMoves array 
     }else if(i == "ma"){
         marsBeep.play();
         document.getElementById("mars").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let maGlow = document.getElementById("mars");
         maGlow.onclick = setTimeout(removeGlow, 600);
+        userMoves.push("mars")//push into the empty userMoves array 
     }
 }
 
@@ -45,7 +49,6 @@ function mercurySequence (){
     document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     let meGlow = document.getElementById("mercury");
     meGlow = setTimeout(removeGlow, 400);
-    userMoves.push("mercury")//push into the empty userMoves array 
 }
 //what happens venus called
 function venusSequence (){
@@ -53,7 +56,6 @@ function venusSequence (){
     document.getElementById("venus").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     let vGlow = document.getElementById("venus");
     vGlow = setTimeout(removeGlow, 500);
-    userMoves.push("venus")//push into the empty userMoves array 
 }
 //what happens earth called
 function earthSequence(){
@@ -61,7 +63,6 @@ function earthSequence(){
     document.getElementById("earth").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     let eGlow = document.getElementById("earth");
     eGlow = setTimeout(removeGlow, 600);
-    userMoves.push("earth")//push into the empty userMoves array 
 }
 //what happens mars called
 function marsSequence(){
@@ -69,7 +70,6 @@ function marsSequence(){
     document.getElementById("mars").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     let maGlow = document.getElementById("mars");
     maGlow = setTimeout(removeGlow, 500);
-    userMoves.push("mars")//push into the empty userMoves array 
 }
 
 
@@ -100,6 +100,7 @@ function hardLevelArray(){
 //Easy Level: loop through array and activate features 
 document.getElementById("easy").addEventListener("click", function(){
     easyLevelArray(); //this function is below
+    userPlayEasy();
     for(let i = 0; i < easyLevel.length; i++){
         console.log(easyLevel[i]);
         if(easyLevel[i]=== "mercury"){
@@ -159,15 +160,15 @@ let easyLevel = [];
 let mediumLevel = [];
 let hardLevel = [];
 let userMoves = [];
-let simonTurn = true; //simon's turn when game loads
-let userTurn = false;
+//let simonTurn = true; //simon's turn when game loads
+//let userTurn = false;
 let simonTurnIndex = 0;
 let userTurnIndex = 0;
 let moves = 0; 
 
 //function for easy game
-function easyGameStart(){
-    if(simonTurn){
+function easySimon(){
+    // if(simonTurn){
         for(let i=0; i<easyLevelArray.length; i++){
             if(easyLevelArray[i] == "mercury"){
                 mercurySequence();
@@ -180,7 +181,20 @@ function easyGameStart(){
             }
         }
         simonTurnIndex +1;
-        simonTurn = false;
+        //simonTurn = false;
+    // }
+}
+
+function userPlayEasy(){
+    for (let i = 0; i< easyLevel.length ; i++){
+        if(easyLevel[i] == userMoves[i]){
+            easySimon();
+            console.log("right!")
+        }else {
+            lose.play();
+            document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
+            console.log("wrong!")
+        }
     }
 }
 
