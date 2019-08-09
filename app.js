@@ -19,8 +19,8 @@ function planetBeep(i){
 
         //calls the user click based on the selected level
         userPlayEasy("mercury");
-        userPlayMedium("mercury");
-        userPlayHard("mercury");
+        // userPlayMedium("mercury");
+        // userPlayHard("mercury");
     }else if(i == "v"){
         //styling what happens when venus is clicked 
         venusBeep.play();
@@ -31,8 +31,8 @@ function planetBeep(i){
 
         //calls the user click based on the selected level
         userPlayEasy("venus");
-        userPlayMedium("venus");
-        userPlayHard("venus");
+        // userPlayMedium("venus");
+        // userPlayHard("venus");
     }else if(i == "e"){
         //styling what happens when earth is clicked 
         earthBeep.play();
@@ -43,8 +43,8 @@ function planetBeep(i){
 
         //calls the user click based on the selected level
         userPlayEasy("earth");
-        userPlayMedium("earth");
-        userPlayHard("earth");
+        // userPlayMedium("earth");
+        // userPlayHard("earth");
     }else if(i == "ma"){
         //styling what happens when mars is clicked 
         marsBeep.play();
@@ -55,8 +55,8 @@ function planetBeep(i){
 
         //calls the user click based on the selected level
         userPlayEasy("mars");
-        userPlayMedium("mars");
-        userPlayHard("mars");
+        // userPlayMedium("mars");
+        // userPlayHard("mars");
     }
 }
 
@@ -168,7 +168,7 @@ document.getElementById("medium").addEventListener("click", function(){
 document.getElementById("hard").addEventListener("click", function(){
     hardSimon(); 
     for(let i = 0; i < hardLevel.length; i++){
-        console.log(medium[i]);
+        console.log(hardLevel[i]);
         if(hardLevel[i]=== "mercury"){
             setTimeout(mercurySequence, 1000 * i);
         }else if (hardLevel[i]=== "venus"){
@@ -223,19 +223,28 @@ function userPlayEasy(planet){
         if(easyLevel[counter] == planet){
             counter += 1;
             console.log("right!")
-        }else {
-            lose.play();
+        }else{
             document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
+            document.getElementById("venus").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
+            document.getElementById("earth").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
+            document.getElementById("mars").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
             console.log("wrong!")
+            lose.play();
             }
+
+         //increment to next round   
         if(counter >= easyLevel.length){
             userTurn = false;
             simonTurn = true;
             setTimeout(easySimon, 2000);
-            if (counter > 0){
+            if (counter > 0 ){
+                //when incremnets to next round, adds 1 to score 
                 moves += 1;
                 document.getElementById("currentScore").innerHTML = moves;
             }
+        }else if (moves === 2){
+                win.play();
+                console.log ("win!")  
         }
     }
 }
@@ -274,11 +283,15 @@ function userPlayMedium(planet){
             document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
             console.log("wrong!")
             }
+
+
+         //increment to next round   
         if(counter >= mediumLevel.length){
             userTurn = false;
             simonTurn = true;
             setTimeout(mediumSimon, 2000);
             if (counter > 0){
+                //when incremnets to next round, adds 1 to score 
                 moves += 1;
                 document.getElementById("currentScore").innerHTML = moves;
             }
@@ -320,11 +333,15 @@ function userPlayHard(planet){
             document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
             console.log("wrong!")
             }
+
+        
+         //increment to next round   
         if(counter >= hardLevel.length){
             userTurn = false;
             simonTurn = true;
             setTimeout(hardSimon, 2000);
             if (counter > 0){
+                //when incremnets to next round, adds 1 to score 
                 moves += 1;
                 document.getElementById("currentScore").innerHTML = moves;
             }
