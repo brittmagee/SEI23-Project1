@@ -19,6 +19,8 @@ function planetBeep(i){
 
         //calls the user click based on the selected level
         userPlayEasy("mercury");
+        userPlayMedium("mercury");
+        userPlayHard("mercury");
     }else if(i == "v"){
         //styling what happens when venus is clicked 
         venusBeep.play();
@@ -29,6 +31,8 @@ function planetBeep(i){
 
         //calls the user click based on the selected level
         userPlayEasy("venus");
+        userPlayMedium("venus");
+        userPlayHard("venus");
     }else if(i == "e"){
         //styling what happens when earth is clicked 
         earthBeep.play();
@@ -39,6 +43,8 @@ function planetBeep(i){
 
         //calls the user click based on the selected level
         userPlayEasy("earth");
+        userPlayMedium("earth");
+        userPlayHard("earth");
     }else if(i == "ma"){
         //styling what happens when mars is clicked 
         marsBeep.play();
@@ -49,6 +55,8 @@ function planetBeep(i){
 
         //calls the user click based on the selected level
         userPlayEasy("mars");
+        userPlayMedium("mars");
+        userPlayHard("mars");
     }
 }
 
