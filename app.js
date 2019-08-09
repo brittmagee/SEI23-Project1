@@ -7,36 +7,52 @@ let lose = new Audio ("audio/lose.mp3")
 let win = new Audio ("audio/win.mp3")
 
 
-//what occurs when planet is clicked 
+//what occurs when planet is clicked on its own
 function planetBeep(i){
     if(i == "me"){
+        //styling what happens when mercury is clicked 
         mercuryBeep.play();
         document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let meGlow = document.getElementById("mercury");
         meGlow.onclick = setTimeout(removeGlow, 400);
+
+
+        //calls the user click based on the selected level
         userPlayEasy("mercury");
     }else if(i == "v"){
+        //styling what happens when venus is clicked 
         venusBeep.play();
         document.getElementById("venus").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let vGlow = document.getElementById("venus");
         vGlow.onclick = setTimeout(removeGlow, 500);
+
+
+        //calls the user click based on the selected level
         userPlayEasy("venus");
     }else if(i == "e"){
+        //styling what happens when earth is clicked 
         earthBeep.play();
         document.getElementById("earth").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let eGlow = document.getElementById("earth");
         eGlow.onclick = setTimeout(removeGlow, 500);
+
+
+        //calls the user click based on the selected level
         userPlayEasy("earth");
     }else if(i == "ma"){
+        //styling what happens when mars is clicked 
         marsBeep.play();
         document.getElementById("mars").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
         let maGlow = document.getElementById("mars");
         maGlow.onclick = setTimeout(removeGlow, 600);
+
+
+        //calls the user click based on the selected level
         userPlayEasy("mars");
     }
 }
 
-//function to have glow removed after .3s 
+//function to have glow removed after clicked
 function removeGlow(){
     document.getElementById("mercury").style.boxShadow = null;
     document.getElementById("venus").style.boxShadow = null;
@@ -106,7 +122,6 @@ function hardLevelArray(){
 
 //Easy Level: loop through array and activate features 
 document.getElementById("easy").addEventListener("click", function(){
-    //easyLevelArray(); 
     easySimon();
     for(let i = 0; i < easyLevel.length; i++){
         console.log(easyLevel[i]);
@@ -127,7 +142,7 @@ document.getElementById("easy").addEventListener("click", function(){
 
 //Medium Level: loop through array and activate features 
 document.getElementById("medium").addEventListener("click", function(){
-    mediumLevelArray(); 
+    mediumSimon(); 
     for(let i = 0; i < mediumLevel.length; i++){
         console.log(mediumLevel[i]);
         if(mediumLevel[i]=== "mercury"){
@@ -147,7 +162,7 @@ document.getElementById("medium").addEventListener("click", function(){
 
 //Hard Level: loop through array and activate features 
 document.getElementById("hard").addEventListener("click", function(){
-    hardLevelArray(); 
+    hardSimon(); 
     for(let i = 0; i < hardLevel.length; i++){
         console.log(medium[i]);
         if(hardLevel[i]=== "mercury"){
@@ -194,7 +209,7 @@ function easySimon(){
         simonTurnIndex += 1;
         simonTurn = false;
         userTurn = true;
-        counter = 0;
+        counter = 0; //resets the array to to go back to the first index and not go further in the index sequnece 
     }
 }
 
@@ -219,26 +234,30 @@ function userPlayEasy(planet){
 }
 
 //function for medium game
-function mediumGameStart(){
+function mediumSimon(){
     if(simonTurn){
-        for(let i=0; i<mediumLevelArray.length; i++){
-            if(mediumLevelArray[i] == "mercury"){
-                mercurySequence();
-            }else if (mediumLevelArray[i] == "venus"){
-                venusSequence();
-            }else if (mediumLevelArray[i] == "earth"){
-                earthSequence();
-            }else if (mediumLevelArray[i] == "mars"){
-                marsSequence();
-            }
+        mediumLevelArray(); 
+        for(let i=0; i<mediumLevel.length; i++){
+                if(mediumLevel[i] == "mercury"){
+                    setTimeout(mercurySequence, 1000 * i);
+                }else if (mediumLevel[i] == "venus"){
+                    setTimeout(venusSequence, 1000 * i); 
+                }else if (mediumLevel[i] == "earth"){
+                    setTimeout(earthSequence, 1000 * i); 
+                }else if (mediumLevel[i] == "mars"){
+                    setTimeout(marsSequence, 1000 * i); 
+                }
+            // console.log(mediumLevel)
         }
-        simonTurnIndex +1;
+        simonTurnIndex += 1;
         simonTurn = false;
+        userTurn = true;
+        counter = 0; //resets the array to to go back to the first index and not go further in the index sequnece 
     }
 }
 
 //function for hard game
-function hardGameStart(){
+function hardSimon(){
     if(simonTurn){
         for(let i=0; i<hardLevelArray.length; i++){
             if(hardLevelArray[i] == "mercury"){
