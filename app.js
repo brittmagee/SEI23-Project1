@@ -51,8 +51,6 @@ function mercurySequence (){
     let meGlow = document.getElementById("mercury");
     meGlow = setTimeout(removeGlow, 400);
     userMoves.push("mercury")//push into the empty userMoves array 
-    moves += 1;
-    document.getElementById("currentScore").innerHTML = moves;
     // userPlayEasy("mercury");
 }
 //what happens venus called
@@ -62,8 +60,6 @@ function venusSequence (){
     let vGlow = document.getElementById("venus");
     vGlow = setTimeout(removeGlow, 500);
     userMoves.push("venus")//push into the empty userMoves array 
-    moves += 1;
-    document.getElementById("currentScore").innerHTML = moves;
     // userPlayEasy("venus");
 }
 //what happens earth called
@@ -73,8 +69,6 @@ function earthSequence(){
     let eGlow = document.getElementById("earth");
     eGlow = setTimeout(removeGlow, 600);
     userMoves.push("earth")//push into the empty userMoves array 
-    moves += 1;
-    document.getElementById("currentScore").innerHTML = moves;
     // userPlayEasy("earth");
 }
 //what happens mars called
@@ -84,8 +78,6 @@ function marsSequence(){
     let maGlow = document.getElementById("mars");
     maGlow = setTimeout(removeGlow, 500);
     userMoves.push("mars")//push into the empty userMoves array 
-    moves += 1;
-    document.getElementById("currentScore").innerHTML = moves;
     // userPlayEasy("mars");
 }
 
@@ -211,6 +203,8 @@ function userPlayEasy(planet){
         if(easyLevel[counter] == planet){
             counter += 1;
             console.log("right!")
+            moves += 1;
+            document.getElementById("currentScore").innerHTML = moves;
         }else {
             lose.play();
             document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
