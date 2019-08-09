@@ -113,16 +113,12 @@ function easyLevelArray() {
 
 //function for medium level (Using Math.floor and Math.random to generate 15 random planet sequence)
 function mediumLevelArray(){
-    for (let i = 0; i < 15; i++){
         mediumLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
-    }
 }
 
 //function for hard level (Using Math.floor and Math.random to generate 20 random planet sequence)
 function hardLevelArray(){
-    for (let i = 0; i < 20; i++){
         hardLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
-    }
 }
 
 //Sample easy array sequence(10)
