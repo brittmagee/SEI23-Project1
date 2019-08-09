@@ -218,8 +218,6 @@ function userPlayEasy(planet){
         if(easyLevel[counter] == planet){
             counter += 1;
             console.log("right!")
-            moves += 1;
-            document.getElementById("currentScore").innerHTML = moves;
         }else {
             lose.play();
             document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
@@ -229,6 +227,10 @@ function userPlayEasy(planet){
             userTurn = false;
             simonTurn = true;
             setTimeout(easySimon, 2000);
+            if (counter > 0){
+                moves += 1;
+                document.getElementById("currentScore").innerHTML = moves;
+            }
         }
     }
 }
