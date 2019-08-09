@@ -213,6 +213,7 @@ function easySimon(){
     }
 }
 
+//function for user playing easy game
 function userPlayEasy(planet){
     if(userTurn){
         if(easyLevel[counter] == planet){
@@ -258,6 +259,29 @@ function mediumSimon(){
     }
 }
 
+//function for user playing medium game
+function userPlayMedium(planet){
+    if(userTurn){
+        if(mediumLevel[counter] == planet){
+            counter += 1;
+            console.log("right!")
+        }else {
+            lose.play();
+            document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
+            console.log("wrong!")
+            }
+        if(counter >= mediumLevel.length){
+            userTurn = false;
+            simonTurn = true;
+            setTimeout(mediumSimon, 2000);
+            if (counter > 0){
+                moves += 1;
+                document.getElementById("currentScore").innerHTML = moves;
+            }
+        }
+    }
+}
+
 //function for hard game
 function hardSimon(){
     if(simonTurn){
@@ -278,5 +302,28 @@ function hardSimon(){
         simonTurn = false;
         userTurn = true;
         counter = 0; //resets the array to to go back to the first index and not go further in the index sequnece 
+    }
+}
+
+//function for user playing hard game
+function userPlayHard(planet){
+    if(userTurn){
+        if(hardLevel[counter] == planet){
+            counter += 1;
+            console.log("right!")
+        }else {
+            lose.play();
+            document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
+            console.log("wrong!")
+            }
+        if(counter >= hardLevel.length){
+            userTurn = false;
+            simonTurn = true;
+            setTimeout(hardSimon, 2000);
+            if (counter > 0){
+                moves += 1;
+                document.getElementById("currentScore").innerHTML = moves;
+            }
+        }
     }
 }
