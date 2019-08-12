@@ -6,7 +6,6 @@ let marsBeep = new Audio ("audio/mars.mp3")
 let lose = new Audio ("audio/lose.mp3")
 let win = new Audio ("audio/win.mp3")
 
-
 //what occurs when planet is clicked on its own
 function planetBeep(i){
     if(i == "me"){
@@ -75,7 +74,6 @@ function mercurySequence (){
     let meGlow = document.getElementById("mercury");
     meGlow = setTimeout(removeGlow, 400);
     userMoves.push("mercury")//push into the empty userMoves array 
-    // userPlayEasy("mercury");
 }
 //what happens venus called
 function venusSequence (){
@@ -83,8 +81,7 @@ function venusSequence (){
     document.getElementById("venus").style.boxShadow = "0px 0px 30px 2px rgb(105, 255, 85), 0px 0px 30px 2px rgb(105, 255, 85) inset";
     let vGlow = document.getElementById("venus");
     vGlow = setTimeout(removeGlow, 500);
-    userMoves.push("venus")//push into the empty userMoves array 
-    // userPlayEasy("venus");
+    userMoves.push("venus")//push into the empty userMoves array  
 }
 //what happens earth called
 function earthSequence(){
@@ -93,7 +90,6 @@ function earthSequence(){
     let eGlow = document.getElementById("earth");
     eGlow = setTimeout(removeGlow, 600);
     userMoves.push("earth")//push into the empty userMoves array 
-    // userPlayEasy("earth");
 }
 //what happens mars called
 function marsSequence(){
@@ -102,7 +98,6 @@ function marsSequence(){
     let maGlow = document.getElementById("mars");
     maGlow = setTimeout(removeGlow, 500);
     userMoves.push("mars")//push into the empty userMoves array 
-    // userPlayEasy("mars");
 }
 
 
@@ -127,36 +122,38 @@ function hardLevelArray(){
 //Easy Level: loop through array and activate features 
 document.getElementById("easy").addEventListener("click", function(){
     easySimon();
+    document.getElementById("easy").style.color= "green"; //turn the Easy text green
     for(let i = 0; i < easyLevel.length; i++){
         console.log(easyLevel[i]);
         if(easyLevel[i]=== "mercury"){
-            setTimeout(mercurySequence, 1000 * i);
+            setTimeout(mercurySequence, 1000 * i); //mercury sequnece ignited for each time mercury is called in the array 
         }else if (easyLevel[i]=== "venus"){
-            setTimeout(venusSequence, 1000 * i); 
+            setTimeout(venusSequence, 1000 * i); //venus sequnece ignited for each time mercury is called in the array 
         }else if (easyLevel[i] === "earth"){
-            setTimeout(earthSequence, 1000 * i); 
+            setTimeout(earthSequence, 1000 * i); //earth sequnece ignited for each time mercury is called in the array 
         }else if(easyLevel[i] === "mars"){
-            setTimeout(marsSequence, 1000 * i); 
+            setTimeout(marsSequence, 1000 * i); //mars sequnece ignited for each time mercury is called in the array 
         }
     }
 });
 
 //Sample medium array sequence (15)
-//let medium = ["mars","venus","mars","mercury","mercury","earth","venus",'Mars',"earth","mars","mercury","mercury","earth","venus","mars"];
+//let medium = ["mars","venus","mars","mercury","mercury","earth","venus","Mars","earth","mars","mercury","mercury","earth","venus","mars"];
 
 //Medium Level: loop through array and activate features 
 document.getElementById("medium").addEventListener("click", function(){
     mediumSimon(); 
+    document.getElementById("medium").style.color= "yellow"; //turn the Medium text yellow 
     for(let i = 0; i < mediumLevel.length; i++){
         console.log(mediumLevel[i]);
         if(mediumLevel[i]=== "mercury"){
-            setTimeout(mercurySequence, 1000 * i);
+            setTimeout(mercurySequence, 1000 * i); //mercury sequnece ignited for each time mercury is called in the array 
         }else if (mediumLevel[i]=== "venus"){
-            setTimeout(venusSequence, 1000 * i); 
+            setTimeout(venusSequence, 1000 * i); //venus sequnece ignited for each time mercury is called in the array 
         }else if (mediumLevel[i] === "earth"){
-            setTimeout(earthSequence, 1000 * i); 
+            setTimeout(earthSequence, 1000 * i); //earth sequnece ignited for each time mercury is called in the array 
         }else if(mediumLevel[i] === "mars"){
-            setTimeout(marsSequence, 1000 * i); 
+            setTimeout(marsSequence, 1000 * i); //mars sequnece ignited for each time mercury is called in the array 
         }
     }
 });
@@ -167,16 +164,17 @@ document.getElementById("medium").addEventListener("click", function(){
 //Hard Level: loop through array and activate features 
 document.getElementById("hard").addEventListener("click", function(){
     hardSimon(); 
+    document.getElementById("hard").style.color= "red"; //turn the Hard text red
     for(let i = 0; i < hardLevel.length; i++){
         console.log(hardLevel[i]);
         if(hardLevel[i]=== "mercury"){
-            setTimeout(mercurySequence, 1000 * i);
+            setTimeout(mercurySequence, 1000 * i); //mercury sequnece ignited for each time mercury is called in the array 
         }else if (hardLevel[i]=== "venus"){
-            setTimeout(venusSequence, 1000 * i); 
+            setTimeout(venusSequence, 1000 * i); //venus sequnece ignited for each time mercury is called in the array 
         }else if (hardLevel[i] === "earth"){
-            setTimeout(earthSequence, 1000 * i); 
+            setTimeout(earthSequence, 1000 * i); //earth sequnece ignited for each time mercury is called in the array 
         }else if(hardLevel[i] === "mars"){
-            setTimeout(marsSequence, 1000 * i); 
+            setTimeout(marsSequence, 1000 * i); //mars sequnece ignited for each time mercury is called in the array 
         }
     }
 });
@@ -224,12 +222,15 @@ function userPlayEasy(planet){
             counter += 1;
             console.log("right!")
         }else{
+            //lose styling: planets glow red and sun engulfs planets 
             document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
             document.getElementById("venus").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
             document.getElementById("earth").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
             document.getElementById("mars").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
             console.log("wrong!")
             lose.play();
+            userTurn = false; //game ends when the user loses
+            simonTurn = false; //game ends when the user loses
             }
 
          //increment to next round   
@@ -242,9 +243,44 @@ function userPlayEasy(planet){
                 moves += 1;
                 document.getElementById("currentScore").innerHTML = moves;
             }
-        }else if (moves === 2){
+            if (moves === 5){ //player plays 5 times successfully
+                //if player wins, the "win" audio plays and teh planets turn colors in the background. (Hope to have planets blink) 
                 win.play();
-                console.log ("win!")  
+                //rotate mercury and turn purple when player wins
+                document.getElementById("mercury").animate([
+                    { transform: "rotate(-360deg)"},  //rotate clockwise 
+                    { boxShadow: "0px 0px 40px 20px rgb(190, 68, 190), 0px 0px 40px 20px rgb(190, 68, 190) inset"}, 
+                  ], { 
+                    duration: 1200, //this duration helps planets not spin too fast
+                    iterations: Infinity
+                  });
+                //rotate venus and turn green when player wins
+                document.getElementById("venus").animate([
+                    { transform: "rotate(-360deg)"}, 
+                    { boxShadow: "0px 0px 40px 20px rgb(55, 136, 73), 0px 0px 40px 20px rgb(55, 136, 73) inset"}, 
+                  ], { 
+                    duration: 1200, //this duration helps planets not spin too fast
+                    iterations: Infinity
+                  });
+                //rotate earth and turn golden when player wins
+                document.getElementById("earth").animate([
+                    { transform: "rotate(-360deg)"}, 
+                    { boxShadow: "0px 0px 40px 20px goldenrod, 0px 0px 40px 20px goldenrod inset"}, 
+                  ], { 
+                    duration: 1200, //this duration helps planets not spin too fast
+                    iterations: Infinity
+                  });
+                //rotate mars and turn golden when player wins
+                document.getElementById("mars").animate([
+                    { transform: "rotate(-360deg)"}, 
+                    { boxShadow: "0px 0px 40px 20px rgb(55, 136, 136), 0px 0px 40px 20px rgb(55, 136, 136) inset"}, 
+                  ], { 
+                    duration: 1200, //this duration helps planets not spin too fast
+                    iterations: Infinity
+                  });
+                userTurn = false; //game ends when the user wins
+                simonTurn = false; //game ends when the user wins
+            }
         }
     }
 }
@@ -282,6 +318,8 @@ function userPlayMedium(planet){
             lose.play();
             document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
             console.log("wrong!")
+            userTurn = false; //game ends when the user loses
+            simonTurn = false; //game ends when the user loses
             }
 
 
@@ -294,6 +332,11 @@ function userPlayMedium(planet){
                 //when incremnets to next round, adds 1 to score 
                 moves += 1;
                 document.getElementById("currentScore").innerHTML = moves;
+            }
+            if (moves === 10){//player plays 10 times successfully
+                win.play();
+                userTurn = false; //game ends when the user wins
+                simonTurn = false; //game ends when the user wins
             }
         }
     }
@@ -332,6 +375,8 @@ function userPlayHard(planet){
             lose.play();
             document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
             console.log("wrong!")
+            userTurn = false; //game ends when the user loses
+            simonTurn = false; //game ends when the user loses
             }
 
         
@@ -344,6 +389,11 @@ function userPlayHard(planet){
                 //when incremnets to next round, adds 1 to score 
                 moves += 1;
                 document.getElementById("currentScore").innerHTML = moves;
+            }
+            if (moves === 15){//player plays 15 times successfully
+                win.play();
+                userTurn = false; //game ends when the user wins
+                simonTurn = false; //game ends when the user wins
             }
         }
     }
