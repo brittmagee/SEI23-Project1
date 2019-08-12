@@ -4,7 +4,7 @@ Welcome to Solar Sequence! For the best user experience, please be sure to turn 
 
 Required links: 
 GitHub Project Board: https://github.com/brittmagee/SEI23-Project1/projects/1
-GitHub Pages: 
+GitHub Pages: https://brittmagee.github.io/
 Full Project: https://github.com/brittmagee/SEI23-Project1
 
 
