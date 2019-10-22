@@ -15,11 +15,16 @@ function planetBeep(i){
         let meGlow = document.getElementById("mercury");
         meGlow.onclick = setTimeout(removeGlow, 400);
 
-
+        
         //calls the user click based on the selected level
-        userPlayEasy("mercury");
-        // userPlayMedium("mercury");
-        // userPlayHard("mercury");
+        if(gameLevel === "easy"){
+            userPlayEasy("mercury");
+        }else if(gameLevel === "medium"){
+            userPlayMedium("mercury");
+        }else if(gameLevel ==="hard"){
+            userPlayHard("mercury");
+        }
+
     }else if(i == "v"){
         //styling what happens when venus is clicked 
         venusBeep.play();
@@ -29,9 +34,13 @@ function planetBeep(i){
 
 
         //calls the user click based on the selected level
-        userPlayEasy("venus");
-        // userPlayMedium("venus");
-        // userPlayHard("venus");
+        if(gameLevel === "easy"){
+            userPlayEasy("venus");
+        }else if(gameLevel === "medium"){
+            userPlayMedium("venus");
+        }else if(gameLevel ==="hard"){
+            userPlayHard("venus");
+        }
     }else if(i == "e"){
         //styling what happens when earth is clicked 
         earthBeep.play();
@@ -41,9 +50,13 @@ function planetBeep(i){
 
 
         //calls the user click based on the selected level
-        userPlayEasy("earth");
-        // userPlayMedium("earth");
-        // userPlayHard("earth");
+        if(gameLevel === "easy"){
+            userPlayEasy("earth");
+        }else if(gameLevel === "medium"){
+            userPlayMedium("earth");
+        }else if(gameLevel ==="hard"){
+            userPlayHard("earth");
+        }
     }else if(i == "ma"){
         //styling what happens when mars is clicked 
         marsBeep.play();
@@ -53,9 +66,13 @@ function planetBeep(i){
 
 
         //calls the user click based on the selected level
-        userPlayEasy("mars");
-        // userPlayMedium("mars");
-        // userPlayHard("mars");
+        if(gameLevel === "easy"){
+            userPlayEasy("mars");
+        }else if(gameLevel === "medium"){
+            userPlayMedium("mars");
+        }else if(gameLevel ==="hard"){
+            userPlayHard("mars");
+        }
     }
 }
 
@@ -100,18 +117,62 @@ function marsSequence(){
     userMoves.push("mars")//push into the empty userMoves array 
 }
 
+//What happens when player wins game
+function winGame (){
+    //rotate mercury and turn purple when player wins
+    document.getElementById("mercury").animate([
+        { transform: "rotate(-360deg)"},  //rotate clockwise 
+        { boxShadow: "0px 0px 40px 20px rgb(190, 68, 190), 0px 0px 40px 20px rgb(190, 68, 190) inset"}, 
+        ], { 
+        duration: 1200, //this duration helps planets not spin too fast
+        iterations: Infinity
+        });
+    //rotate venus and turn green when player wins
+    document.getElementById("venus").animate([
+        { transform: "rotate(-360deg)"}, 
+        { boxShadow: "0px 0px 40px 20px rgb(55, 136, 73), 0px 0px 40px 20px rgb(55, 136, 73) inset"}, 
+        ], { 
+        duration: 1200, //this duration helps planets not spin too fast
+        iterations: Infinity
+        });
+    //rotate earth and turn golden when player wins
+    document.getElementById("earth").animate([
+        { transform: "rotate(-360deg)"}, 
+        { boxShadow: "0px 0px 40px 20px goldenrod, 0px 0px 40px 20px goldenrod inset"}, 
+        ], { 
+        duration: 1200, //this duration helps planets not spin too fast
+        iterations: Infinity
+        });
+    //rotate mars and turn golden when player wins
+    document.getElementById("mars").animate([
+        { transform: "rotate(-360deg)"}, 
+        { boxShadow: "0px 0px 40px 20px rgb(55, 136, 136), 0px 0px 40px 20px rgb(55, 136, 136) inset"}, 
+        ], { 
+        duration: 1200, //this duration helps planets not spin too fast
+        iterations: Infinity
+        });
+}
 
-//function for easy level (Using Math.floor and Math.random to generate 10 random planet sequence)
+//What happens when player loses game 
+function loseGame(){
+    //lose styling: planets glow red and sun engulfs planets 
+    document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
+    document.getElementById("venus").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
+    document.getElementById("earth").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
+    document.getElementById("mars").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
+}
+
+//function for easy level (Using Math.floor and Math.random to generate 5 random planet sequence)
 function easyLevelArray() {
         easyLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
 }
 
-//function for medium level (Using Math.floor and Math.random to generate 15 random planet sequence)
+//function for medium level (Using Math.floor and Math.random to generate 10 random planet sequence)
 function mediumLevelArray(){
         mediumLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
 }
 
-//function for hard level (Using Math.floor and Math.random to generate 20 random planet sequence)
+//function for hard level (Using Math.floor and Math.random to generate 15 random planet sequence)
 function hardLevelArray(){
         hardLevel.push(planets[Math.floor(Math.random()*4)]);//randomly selects one of the 4 planets 
 }
@@ -119,7 +180,7 @@ function hardLevelArray(){
 //Sample easy array sequence(10)
 //let easy = ["earth","venus","mars","mercury","earth","mercury","mars","venus","mercury","venus"];
 
-//Easy Level: loop through array and activate features 
+//When click Easy Level: loop through array and activate features 
 document.getElementById("easy").addEventListener("click", function(){
     easySimon();
     document.getElementById("easy").style.color= "green"; //turn the Easy text green
@@ -191,9 +252,11 @@ let userTurnIndex = 0;
 let moves = 0; 
 let scoreBoard = document.getElementById("currentScore").innerText
 let counter = 0;
+let gameLevel;
 
 //function for easy game
 function easySimon(){
+    gameLevel = "easy"
     if(simonTurn){
         easyLevelArray(); 
         for(let i=0; i<easyLevel.length; i++){
@@ -222,13 +285,9 @@ function userPlayEasy(planet){
             counter += 1;
             console.log("right!")
         }else{
-            //lose styling: planets glow red and sun engulfs planets 
-            document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
-            document.getElementById("venus").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
-            document.getElementById("earth").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
-            document.getElementById("mars").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
-            console.log("wrong!")
             lose.play();
+            loseGame();
+            console.log("wrong!")
             userTurn = false; //game ends when the user loses
             simonTurn = false; //game ends when the user loses
             }
@@ -243,41 +302,10 @@ function userPlayEasy(planet){
                 moves += 1;
                 document.getElementById("currentScore").innerHTML = moves;
             }
-            if (moves === 5){ //player plays 5 times successfully
-                //if player wins, the "win" audio plays and teh planets turn colors in the background. (Hope to have planets blink) 
+            if (moves === 4){ //player plays 5 times successfully
+                //if player wins, the "win" audio plays and the planets turn colors in the background. (Hope to have planets blink) 
                 win.play();
-                //rotate mercury and turn purple when player wins
-                document.getElementById("mercury").animate([
-                    { transform: "rotate(-360deg)"},  //rotate clockwise 
-                    { boxShadow: "0px 0px 40px 20px rgb(190, 68, 190), 0px 0px 40px 20px rgb(190, 68, 190) inset"}, 
-                  ], { 
-                    duration: 1200, //this duration helps planets not spin too fast
-                    iterations: Infinity
-                  });
-                //rotate venus and turn green when player wins
-                document.getElementById("venus").animate([
-                    { transform: "rotate(-360deg)"}, 
-                    { boxShadow: "0px 0px 40px 20px rgb(55, 136, 73), 0px 0px 40px 20px rgb(55, 136, 73) inset"}, 
-                  ], { 
-                    duration: 1200, //this duration helps planets not spin too fast
-                    iterations: Infinity
-                  });
-                //rotate earth and turn golden when player wins
-                document.getElementById("earth").animate([
-                    { transform: "rotate(-360deg)"}, 
-                    { boxShadow: "0px 0px 40px 20px goldenrod, 0px 0px 40px 20px goldenrod inset"}, 
-                  ], { 
-                    duration: 1200, //this duration helps planets not spin too fast
-                    iterations: Infinity
-                  });
-                //rotate mars and turn golden when player wins
-                document.getElementById("mars").animate([
-                    { transform: "rotate(-360deg)"}, 
-                    { boxShadow: "0px 0px 40px 20px rgb(55, 136, 136), 0px 0px 40px 20px rgb(55, 136, 136) inset"}, 
-                  ], { 
-                    duration: 1200, //this duration helps planets not spin too fast
-                    iterations: Infinity
-                  });
+                winGame();    
                 userTurn = false; //game ends when the user wins
                 simonTurn = false; //game ends when the user wins
             }
@@ -287,6 +315,7 @@ function userPlayEasy(planet){
 
 //function for medium game
 function mediumSimon(){
+    gameLevel = "medium"
     if(simonTurn){
         mediumLevelArray(); 
         for(let i=0; i<mediumLevel.length; i++){
@@ -316,7 +345,7 @@ function userPlayMedium(planet){
             console.log("right!")
         }else {
             lose.play();
-            document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
+            loseGame();
             console.log("wrong!")
             userTurn = false; //game ends when the user loses
             simonTurn = false; //game ends when the user loses
@@ -333,8 +362,9 @@ function userPlayMedium(planet){
                 moves += 1;
                 document.getElementById("currentScore").innerHTML = moves;
             }
-            if (moves === 10){//player plays 10 times successfully
+            if (moves === 3){//player plays 10 times successfully
                 win.play();
+                winGame(); 
                 userTurn = false; //game ends when the user wins
                 simonTurn = false; //game ends when the user wins
             }
@@ -344,6 +374,7 @@ function userPlayMedium(planet){
 
 //function for hard game
 function hardSimon(){
+    gameLevel = "hard"
     if(simonTurn){
         hardLevelArray(); 
         for(let i=0; i<hardLevel.length; i++){
@@ -373,7 +404,7 @@ function userPlayHard(planet){
             console.log("right!")
         }else {
             lose.play();
-            document.getElementById("mercury").style.boxShadow = "0px 0px 30px 2px rgb(233, 2, 2), 0px 0px 30px 2px rgb(233, 2, 2) inset";
+            loseGame();
             console.log("wrong!")
             userTurn = false; //game ends when the user loses
             simonTurn = false; //game ends when the user loses
@@ -390,8 +421,9 @@ function userPlayHard(planet){
                 moves += 1;
                 document.getElementById("currentScore").innerHTML = moves;
             }
-            if (moves === 15){//player plays 15 times successfully
+            if (moves === 12){//player plays 15 times successfully
                 win.play();
+                winGame(); 
                 userTurn = false; //game ends when the user wins
                 simonTurn = false; //game ends when the user wins
             }

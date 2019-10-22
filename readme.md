@@ -1,7 +1,6 @@
 Note to user: 
 Welcome to Solar Sequence! For the best user experience, please be sure to turn on your audio. 
 
-
 Required links: 
 GitHub Project Board: https://github.com/brittmagee/SEI23-Project1/projects/1
 GitHub Pages: https://brittmagee.github.io/
