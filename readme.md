@@ -2,11 +2,12 @@ Note to user:
 Welcome to Solar Sequence! For the best user experience, please be sure to turn on your audio. 
 
 Required links: 
-[Full Project on GitHub Pages](https://brittmagee.github.io/)
+
+[Full Project on GitHub Pages](https://brittmagee.github.io/SolarSequence-SEI23-Project1/)
 
 [GitHub Link](https://github.com/brittmagee/SEI23-Project1)
 
-[GitHub Project Board](https://github.com/brittmagee/SEI23-Project1/projects/1)
+[GitHub Project Board](https://github.com/brittmagee/SolarSequence-SEI23-Project1/projects/1)
 
 
 Wireframe: 
