@@ -362,7 +362,7 @@ function userPlayMedium(planet){
                 moves += 1;
                 document.getElementById("currentScore").innerHTML = moves;
             }
-            if (moves === 3){//player plays 10 times successfully
+            if (moves === 8){//player plays 10 times successfully
                 win.play();
                 winGame(); 
                 userTurn = false; //game ends when the user wins
