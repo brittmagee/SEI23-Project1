@@ -1,6 +1,7 @@
 ### Welcome to Solar Sequence! 
 #### A  digital, space-themed version of the 1980s Simon game. For the best user experience, please be sure to turn on your audio. 
 
+
 #### Instructions: 
 * To win easy mode, successfully follow the sequenece 4 times.
 * To win medium mode, successfully follow the sequence 8 times.
@@ -8,7 +9,7 @@
 
 Required links: 
 
-[Deployed Project](https://brittmagee.github.io/SolarSequence-SEI23-Project1/)
+[Deployed Project](https://solar-sequence.netlify.com/)
 
 [GitHub Link](https://github.com/brittmagee/SEI23-Project1)
 
